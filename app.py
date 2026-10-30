@@ -15,7 +15,7 @@ def health():
 def process():
 
     payload = request.get_json()
-    print(payload)
+    
     task_id = payload.get("newState", {}).get("ID")
 
     if not task_id:
