@@ -30,6 +30,8 @@ def get_task(task_id):
             verify=False
         )
 
+        print(response.json())
+
         return response.json()["data"]
 
     except Exception as e:
