@@ -30,8 +30,6 @@ def get_task(task_id):
             verify=False
         )
 
-        print(response.json())
-
         return response.json()["data"]
 
     except Exception as e:
@@ -108,6 +106,12 @@ def updateAssignment(task,user):
             },
             verify=False
         )
+
+        print({
+            "success": updateTask.status_code == 200,
+            "Updated Task":f"Task '{updateTask.json()["data"]["name"]}' reassigned",
+            "User Assigned": user["user name"]
+        })
 
         return {
             "success": updateTask.status_code == 200,
